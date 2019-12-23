@@ -81,8 +81,8 @@ class TutorialBLL(TutorialDAL):
             tutorials_by_teacher = self.get_by_teacherId(teacherId)
             if tutorials_by_teacher is not None:
                 for t in tutorials_by_teacher:
-                    start = datetime.strptime(str(t["startTime"]), "%H:%M:%S")
-                    end = datetime.strptime(str(t["endTime"]), "%H:%M:%S")
+                    start = t["startTime"]
+                    end = t["endTime"]
                     diff = end - start
                     total = total + diff
                 if total.seconds//3600 > 2:
